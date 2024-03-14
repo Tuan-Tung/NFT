@@ -1115,7 +1115,8 @@ export class UsersService {
       dataKyc.issuance_date === '' ||
       dataKyc.issuance_place === '' ||
       dataKyc.given_names === '' ||
-      dataKyc.id_number === user.refId
+      dataKyc.id_number === user.refId ||
+      user.kycInfo.kycStatus === KYCStatus.VERIFIED
     ) {
       throw ApiError(ErrorCode.INVALID_KYC, 'KYC cannot found user');
     } else {
